@@ -16,7 +16,7 @@
   <meta charset="utf-8">
 
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="weather.css">
+<link rel="stylesheet" type="text/css" href="wikiViewer.css">
 
 <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -27,21 +27,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
 </head>
 <body>
 
 <div class = "container-fluid">
-<a href="https://en.wikipedia.org/wiki/Special:Random">Click here for a random Wikipedia Article.</a>
+<a href="https://en.wikipedia.org/wiki/Special:Random">Click here for a random Wikipedia Article.</br></a>
 
-<form method="get" id="searchform" action="http://w3lessons.info">
-	<fieldset>
-    <input id="s" name="s" type="text"
-         	value="Enter Keyword" class="text_input"
-		    onblur="if(this.value==''){this.value='Enter Keyword';}"
-            onfocus="if(this.value =='Enter Keyword') {this.value=''; }" />
-	<input name="submit" type="submit"  value="" />
-    </fieldset>
-</form>
+<input id="searchform" type="text" /> <button id="search">Search</button>
+
 
 </div>
 
