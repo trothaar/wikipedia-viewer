@@ -32,14 +32,21 @@
 <body>
 
 <div class = "container-fluid">
-<a href="https://en.wikipedia.org/wiki/Special:Random">Click here for a random Wikipedia Article.</br></a>
+  <h1>Wikipedia Viewer</h1>
+<div class = "main-search">
 
-<input id="searchform" type="text" /> <button id="search">Search</button>
+  <form id="searchform">
+  	<fieldset>
+      <input id="s" name="s" type="text"
+           	value="Enter Keyword" class="text_input"
+  		    onblur="if(this.value==''){this.value='Enter Keyword';}"
+              onfocus="if(this.value =='Enter Keyword') {this.value=''; }" />
+  	<input name="submit" type="submit"  value="" />
+      </fieldset>
+  </form></div>
 
-
+<div class = "results"></div>
 </div>
-
-
 
 
 <!-- Javascript -->
