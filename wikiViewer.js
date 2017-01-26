@@ -1,46 +1,35 @@
-var html = '';
 
-function search() {
-  searchTerm = $('#s').val();
-  $.ajax( {
-    url: 'https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=' + searchTerm,
-    dataType: 'jsonp',
-    type: 'POST',
-    headers: { 'Api-User-Agent': 'trothaarwork -at- gmail -dot- com' },
-    success: function(data) {
-
-      // Clear the div of all previous search results
-      $('.results').empty();
-
-      // Then we also clear the array with the results before providing new information.
-      //arrResults.length = 0;
-      var resArr = data.query.search;
-
-      //For each result, generate the html data for the results div.
-      for (var result in resArr) {
-        html = '<div id="articles" class="well"><a href="https://en.wikipedia.org/wiki/' + resArr[result].title + '"target="_blank"><h3>' + resArr[result].title + '</h3><p>' + resArr[result].snippet + '</p></a></div>';
-        // Display the elements to the page
-        $('.results').append(html);
+$(document).ready(function() {
+  $("#getResult").click(function() {
+    // Clear the results div and array
+    $('.results').empty();
+    var resArr = [];
+    var search = $("#search").val();
+    $.ajax({
+      type: 'GET',
+      url: 'https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrnamespace=0&gsrlimit=10&prop=extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=' + search,
+      dataType: 'jsonp',
+      success: function(result) {
+        resArr = result.query.pages;
+        console.log(resArr);
+        for (var result in resArr) {
+          html = '<div id="articles" class="well"><a href="https://en.wikipedia.org/wiki/' + resArr[result].title + '"target="_blank"><h3>' + resArr[result].title + '</h3><p>' + resArr[result].extract + '</p></a></div>';
+          // Display the elements to the page
+          $('.results').append(html);
+        }
       }
+    });
+  });
+
+  // Start search when user presses enter or clicks on the search button
+  $("#search").keypress(function(e) {
+    if (e.which == 13) {
+      $("#getResult").click();
     }
   });
 
-  // This will handle when to display results based on the search bar.
-  if ($('#s').val().length > 0) {
-    $('.articles').css('display', 'none');
-
-  } else if ($('#s').val().length < 1) {
-    // display everything again
-    $('.articles').css('display', 'block');
-  }
-
-  // This make things tick with each key stroke
-  $('#s').unbind('keyup');
-  $('#s').keyup(function() {
-    search();
+  // Remove button outline upon click
+  $('#getResult, #randomResult').click(function() {
+    $(this).blur();
   });
-}
-
-$('#s').click(function() {
-  search();
 });

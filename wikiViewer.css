@@ -1,62 +1,74 @@
-.search-form .form-group {
-  float: right !important;
-  transition: all 0.35s, border-radius 0s;
-  width: 32px;
-  height: 32px;
-  background-color: #fff;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-  border-radius: 25px;
-  border: 1px solid #ccc;
+.content-wrap, .results {
+  margin-top: 40px;
 }
-.search-form .form-group input.form-control {
-  padding-right: 20px;
-  border: 0 none;
-  background: transparent;
-  box-shadow: none;
-  display:block;
+
+h1 {
+  font-size: 45px;
 }
-.search-form .form-group input.form-control::-webkit-input-placeholder {
-  display: none;
-}
-.search-form .form-group input.form-control:-moz-placeholder {
-  /* Firefox 18- */
-  display: none;
-}
-.search-form .form-group input.form-control::-moz-placeholder {
-  /* Firefox 19+ */
-  display: none;
-}
-.search-form .form-group input.form-control:-ms-input-placeholder {
-  display: none;
-}
-.search-form .form-group:hover,
-.search-form .form-group.hover {
-  width: 100%;
-  border-radius: 4px 25px 25px 4px;
-}
-.search-form .form-group span.form-control-feedback {
-  position: absolute;
-  top: -1px;
-  right: -2px;
-  z-index: 2;
+
+#search {
+  width: 300px;
+  height: 30px;
+  padding-left: 10px;
   display: block;
-  width: 34px;
-  height: 34px;
-  line-height: 34px;
-  text-align: center;
-  color: #3596e0;
-  left: initial;
-  font-size: 14px;
+  margin: 0 auto;
+  margin-top: 20px;
+  outline: none;
 }
 
-
-.main-search{
-	margin: 4% auto auto auto;
-	padding: 25px;
+.btn-default {
+  margin: 4px;
+  margin-top: 10px;
+  font-size: 16px;
+  border: none;
+  color: #FFFFFF !important;
 }
 
-.results{
-	margin-top: : 25px;
-	margin-bottom: 25px;
-	padding: 50px;
+.btn-default:hover {
+  opacity: 0.8;
+  color: #FFFFFF !important;
+}
+
+button {
+  width: 122px;
+  background-color: #3366cc !important;
+  outline: none !important;
+}
+
+#randomResult {
+  display: inline-block;
+  width: 165px;
+  background-color: #9ACD32 !important;
+  outline: none !important;
+}
+
+/* Style the results section */
+
+.well{
+  background-color: #ffffff;
+}
+
+.results a {
+  display: block;
+  margin: 10px;
+  padding: 0 50px;
+  padding: 20px;
+  text-align: justify;
+  color: #000;
+  background-color: #ffffff;
+}
+
+.results a:hover {
+  text-decoration: none;
+  color: #000;
+  border-left: 4px solid #FF8C00;
+}
+
+.results .title {
+  margin-bottom: 15px;
+  font-size: 2em;
+}
+
+.results .extract {
+  font-size: 18px;
 }
